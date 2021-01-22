@@ -1,7 +1,7 @@
 package com.example.filedemo.service;
 
 import com.example.filedemo.exception.FileStorageException;
-import com.example.filedemo.exception.MyFileNotFoundException;
+import com.example.filedemo.exception.NotFoundException;
 import com.example.filedemo.model.DBFile;
 import com.example.filedemo.repository.DBFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,6 @@ public class DBFileStorageService {
 
     public DBFile getFile(String fileId) {
         return dbFileRepository.findById(fileId)
-                .orElseThrow(() -> new MyFileNotFoundException("File not found with id " + fileId));
+                .orElseThrow(() -> new NotFoundException("File not found with id " + fileId));
     }
 }
